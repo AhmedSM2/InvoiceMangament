@@ -11,8 +11,8 @@ namespace Collection.Repository
         InvoiceDBEntities db = new InvoiceDBEntities();
         public void addCustomer(Customer c)
         {
-            var c_no = db.Customers.Last();
-            c.Customer_No = (c_no.Customer_No+1);
+            var c_no = db.Customers.ToList().Last();
+            c.Customer_No = (c_no.Customer_No + 1);
             db.Customers.Add(c);
             db.SaveChanges();
         }

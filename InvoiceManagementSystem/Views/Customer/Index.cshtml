@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout2.cshtml";
+    var temp= Model.ToList().Last().Customer_No + 1; 
+
 }
 
 <h2>Index</h2>
@@ -25,6 +27,7 @@
         <tbody>
            @foreach (var item in Model)
            {
+               
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Customer_No)
@@ -33,12 +36,24 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Active)
+                    @{
+                        var active = item.Active.ToString();
+                        if (item.Active == true)
+                        {
+                            <span class="label label-primary">@active</span>
+                        }
+                        else
+                        {
+                            <span class="label label-danger">@active</span>
+                        }
+                    }
+                   
+                    @*@Html.LabelFor(modelItem => item.Active.g , new { @class = "label label-default" })*@
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "editCustomer", new { id = item.id })
-                    @Html.ActionLink("Details", "Details", new { id = item.id })
-                    @Html.ActionLink("Delete", "delteCustomer", new { id = item.id })
+                    @Html.ActionLink("Edit", "editCustomer", new { id = item.id }, new {  @class = "btn btn-success"})
+                    @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Delete", "delteCustomer", new { id = item.id }, new { @class = "btn btn-warning" })
                 </td>
             </tr>
            }
@@ -50,7 +65,7 @@
     <div class="form">
         <div class="form-group">
             <label for="exampleFormControlInput1">Customer Number</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" disabled>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=@temp disabled>
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Customer Name</label>
@@ -58,7 +73,7 @@
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-check">
-         @*   <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Active"/>*@
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="Active"/>
             <label class="form-check-label" for="exampleCheck1">Active</label>
         </div>
         <button type="submit" class="btn btn-primary" id="send">Add</button>

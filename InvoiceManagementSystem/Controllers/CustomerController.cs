@@ -17,8 +17,17 @@ namespace InvoiceManagementSystem.Controllers
             return View(c_dsl.get_customers());
         }
         
-        public ActionResult AddCustomer(Customer c)
+        public ActionResult AddCustomer(Customer c, string Active)
         {
+            if (Active == "on")
+            {
+                c.Active = true;
+
+            }
+            else
+            {
+                c.Active = false;
+            }
 
             c_dsl.addCustomer(c);
             return Json(new { result = 1 });
