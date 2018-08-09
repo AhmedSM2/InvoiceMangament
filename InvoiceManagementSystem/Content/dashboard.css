@@ -1,0 +1,87 @@
+﻿body{
+    position:relative;
+    background-color:burlywood; 
+}
+main-content {
+    position: relative;
+}
+.test1{
+    height:500px;
+    width:80%;
+    position:absolute;
+    left:20%;
+    background-color:#ff6a00;
+}
+.test2 {
+    height: 500px;
+    width: 80%;
+    position: absolute;
+    left: 20%;
+    background-color: #00ff90;
+    display:none;
+}
+.user {
+    height: 500px;
+    width: 20%;
+    position: absolute;
+    background-color: #222;
+}
+.user a {
+    height: 40px;
+    display: block;
+    color: #ffffff;
+    font-size: large;
+    /*background-color: #1b529f;*/
+    text-align: center;
+    padding: 8px;
+    text-decoration: none;
+    border-left: 5px solid rgba(255,0,0,0);
+    transition: all 0.3s ease-in-out;
+}
+.user a:hover,.user a:focus{
+    border-color:#fff;
+    cursor:pointer;
+}
+.general a.btn {
+    border-radius: 0px;
+    font-size: large;
+}
+.general a.btn-danger {
+    color: #fff;
+    background-color: #73ce10;
+    border-color: #73ce10;
+}
+.general a.btn-danger span,.general a.btn-info span{
+    color:#fff
+}
+.general a.btn-info {
+    color: #fff;
+    background-color: #d80000;
+    border-color: #d80000;
+}
+.general .invoice {
+    background-color: #fff;
+    width: 100%;
+    height: 87%;
+    position: relative;
+}
+.general .invoice h1{
+    padding:0px;
+    margin:0px;
+}
+.i_Search, .i_invoice, .i_Reports, .u_Search,.u_invoice, .u_Reports {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.i_invoice, .i_Reports, .u_invoice, .u_Reports {
+    display: none;
+}
+.clear{
+    clear:both;
+}
+._3btns{
+    height:10%;
+    width:100%;
+}

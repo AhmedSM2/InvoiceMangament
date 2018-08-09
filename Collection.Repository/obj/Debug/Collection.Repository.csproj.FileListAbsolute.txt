@@ -1,0 +1,12 @@
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\bin\Debug\Collection.Repository.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\bin\Debug\Collection.Repository.pdb
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\bin\Debug\Collcection.DAL.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\bin\Debug\EntityFramework.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\bin\Debug\Collcection.DAL.pdb
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\bin\Debug\Collcection.DAL.dll.config
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\bin\Debug\EntityFramework.xml
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\obj\Debug\Collection.Repository.csprojResolveAssemblyReference.cache
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\obj\Debug\Collection.Repository.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\obj\Debug\Collection.Repository.pdb

@@ -1,0 +1,10 @@
+C:\Users\A1\Source\Repos\InvoiceMangament\Collcection.DAL\bin\Debug\Collcection.DAL.dll.config
+C:\Users\A1\Source\Repos\InvoiceMangament\Collcection.DAL\bin\Debug\Collcection.DAL.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collcection.DAL\bin\Debug\Collcection.DAL.pdb
+C:\Users\A1\Source\Repos\InvoiceMangament\Collcection.DAL\bin\Debug\EntityFramework.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collcection.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collcection.DAL\bin\Debug\EntityFramework.xml
+C:\Users\A1\Source\Repos\InvoiceMangament\Collcection.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\A1\Source\Repos\InvoiceMangament\Collcection.DAL\obj\Debug\Collcection.DAL.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collcection.DAL\obj\Debug\Collcection.DAL.pdb
+C:\Users\A1\Source\Repos\InvoiceMangament\Collcection.DAL\obj\Debug\Collcection.DAL.csprojResolveAssemblyReference.cache

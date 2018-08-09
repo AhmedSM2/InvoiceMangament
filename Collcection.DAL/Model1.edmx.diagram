@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="65ecf242d7014e67a4f6568c07e79b64" Name="Diagram1">
+        <EntityTypeShape EntityType="InvoiceDBModel.Comment" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InvoiceDBModel.Customer" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InvoiceDBModel.Invoice" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InvoiceDBModel.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InvoiceDBModel.Type" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InvoiceDBModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="InvoiceDBModel.FK_Comment_Comment" ManuallyRouted="false" />
+        <AssociationConnector Association="InvoiceDBModel.FK_Comment_Invoices" ManuallyRouted="false" />
+        <AssociationConnector Association="InvoiceDBModel.FK_Invoices_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="InvoiceDBModel.FK_User_Type" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

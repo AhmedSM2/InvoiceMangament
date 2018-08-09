@@ -1,0 +1,7 @@
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.APIs\bin\Debug\Collection.APIs.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.APIs\bin\Debug\Collection.APIs.pdb
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.APIs\bin\Debug\System.Web.Http.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.APIs\bin\Debug\System.Web.Http.xml
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.APIs\obj\Debug\Collection.APIs.csprojResolveAssemblyReference.cache
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.APIs\obj\Debug\Collection.APIs.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.APIs\obj\Debug\Collection.APIs.pdb

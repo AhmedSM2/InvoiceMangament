@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -52,12 +58,18 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -141,7 +153,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -150,6 +165,58 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dashboard.css" />
+    <Content Include="Content\img\1820203_logo_1454834255.png" />
+    <Content Include="Content\img\Free-Invoice-Template-PSD.jpg" />
+    <Content Include="fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\img\about.jpg" />
+    <Content Include="Content\img\commercial-design.jpg" />
+    <Content Include="Content\img\intro-bg.jpg" />
+    <Content Include="Content\img\office-design.jpg" />
+    <Content Include="Content\img\portfolio\01-large.jpg" />
+    <Content Include="Content\img\portfolio\01-small.jpg" />
+    <Content Include="Content\img\portfolio\02-large.jpg" />
+    <Content Include="Content\img\portfolio\02-small.jpg" />
+    <Content Include="Content\img\portfolio\03-large.jpg" />
+    <Content Include="Content\img\portfolio\03-small.jpg" />
+    <Content Include="Content\img\portfolio\04-large.jpg" />
+    <Content Include="Content\img\portfolio\04-small.jpg" />
+    <Content Include="Content\img\portfolio\05-large.jpg" />
+    <Content Include="Content\img\portfolio\05-small.jpg" />
+    <Content Include="Content\img\portfolio\06-large.jpg" />
+    <Content Include="Content\img\portfolio\06-small.jpg" />
+    <Content Include="Content\img\portfolio\07-large.jpg" />
+    <Content Include="Content\img\portfolio\07-small.jpg" />
+    <Content Include="Content\img\portfolio\08-large.jpg" />
+    <Content Include="Content\img\portfolio\08-small.jpg" />
+    <Content Include="Content\img\portfolio\09-large.jpg" />
+    <Content Include="Content\img\portfolio\09-small.jpg" />
+    <Content Include="Content\img\portfolio\10-large.jpg" />
+    <Content Include="Content\img\portfolio\10-small.jpg" />
+    <Content Include="Content\img\portfolio\11-large.jpg" />
+    <Content Include="Content\img\portfolio\11-small.jpg" />
+    <Content Include="Content\img\portfolio\12-large.jpg" />
+    <Content Include="Content\img\portfolio\12-small.jpg" />
+    <Content Include="Content\img\residential-design.jpg" />
+    <Content Include="Content\img\team-bg.jpg" />
+    <Content Include="Content\img\team\01.jpg" />
+    <Content Include="Content\img\team\02.jpg" />
+    <Content Include="Content\img\team\03.jpg" />
+    <Content Include="Content\img\team\04.jpg" />
+    <Content Include="Content\nivo-lightbox\close%402x.png" />
+    <Content Include="Content\nivo-lightbox\close.png" />
+    <Content Include="Content\nivo-lightbox\default.css" />
+    <Content Include="Content\nivo-lightbox\loading%402x.gif" />
+    <Content Include="Content\nivo-lightbox\loading.gif" />
+    <Content Include="Content\nivo-lightbox\next%402x.png" />
+    <Content Include="Content\nivo-lightbox\next.png" />
+    <Content Include="Content\nivo-lightbox\nivo-lightbox.css" />
+    <Content Include="Content\nivo-lightbox\prev%402x.png" />
+    <Content Include="Content\nivo-lightbox\prev.png" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -159,17 +226,58 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="fonts\font-awesome\less\animated.less" />
+    <Content Include="fonts\font-awesome\less\bordered-pulled.less" />
+    <Content Include="fonts\font-awesome\less\core.less" />
+    <Content Include="fonts\font-awesome\less\fixed-width.less" />
+    <Content Include="fonts\font-awesome\less\font-awesome.less" />
+    <Content Include="fonts\font-awesome\less\icons.less" />
+    <Content Include="fonts\font-awesome\less\larger.less" />
+    <Content Include="fonts\font-awesome\less\list.less" />
+    <Content Include="fonts\font-awesome\less\mixins.less" />
+    <Content Include="fonts\font-awesome\less\path.less" />
+    <Content Include="fonts\font-awesome\less\rotated-flipped.less" />
+    <Content Include="fonts\font-awesome\less\stacked.less" />
+    <Content Include="fonts\font-awesome\less\variables.less" />
+    <Content Include="fonts\font-awesome\scss\font-awesome.scss" />
+    <Content Include="fonts\font-awesome\scss\_animated.scss" />
+    <Content Include="fonts\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="fonts\font-awesome\scss\_core.scss" />
+    <Content Include="fonts\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="fonts\font-awesome\scss\_icons.scss" />
+    <Content Include="fonts\font-awesome\scss\_larger.scss" />
+    <Content Include="fonts\font-awesome\scss\_list.scss" />
+    <Content Include="fonts\font-awesome\scss\_mixins.scss" />
+    <Content Include="fonts\font-awesome\scss\_path.scss" />
+    <Content Include="fonts\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="fonts\font-awesome\scss\_stacked.scss" />
+    <Content Include="fonts\font-awesome\scss\_variables.scss" />
+    <Content Include="fonts\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\contact_me.js" />
+    <Content Include="Scripts\jqBootstrapValidation.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.isotope.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\nivo-lightbox.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\SmoothScroll.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -184,10 +292,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Main\Index.cshtml" />
+    <Content Include="Views\Main\profile.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\editCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -203,6 +317,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Collcection.DAL\Collcection.DAL.csproj">
+      <Project>{d1bf6bf0-b406-4166-b5e0-83a568691270}</Project>
+      <Name>Collcection.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Collection.DSL\Collection.DSL.csproj">
+      <Project>{b7e1d5a2-2b57-4a23-a0c4-23819cd5a2cc}</Project>
+      <Name>Collection.DSL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Collection.Entity\Collection.Entity.csproj">
+      <Project>{628d8fb8-45b5-47e9-a502-504d0314907c}</Project>
+      <Name>Collection.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

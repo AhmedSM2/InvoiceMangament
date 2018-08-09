@@ -1,0 +1,12 @@
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.DSL\bin\Debug\Collection.DSL.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.DSL\bin\Debug\Collection.DSL.pdb
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.DSL\bin\Debug\Collcection.DAL.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.DSL\bin\Debug\Collection.Repository.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.DSL\bin\Debug\EntityFramework.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.DSL\bin\Debug\Collcection.DAL.pdb
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.DSL\bin\Debug\Collcection.DAL.dll.config
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.DSL\bin\Debug\Collection.Repository.pdb
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.DSL\bin\Debug\EntityFramework.xml
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.DSL\obj\Debug\Collection.DSL.csprojResolveAssemblyReference.cache
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.DSL\obj\Debug\Collection.DSL.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.DSL\obj\Debug\Collection.DSL.pdb

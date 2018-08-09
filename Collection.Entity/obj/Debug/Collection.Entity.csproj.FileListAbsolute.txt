@@ -1,0 +1,5 @@
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\bin\Debug\Collection.Entity.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\bin\Debug\Collection.Entity.pdb
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\obj\Debug\Collection.Entity.csprojResolveAssemblyReference.cache
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\obj\Debug\Collection.Entity.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\obj\Debug\Collection.Entity.pdb

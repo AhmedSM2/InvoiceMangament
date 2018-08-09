@@ -26,6 +26,22 @@ namespace InvoiceManagementSystem
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            /*****************************************************/
+            
+            bundles.Add(new StyleBundle("~/jScript/myjs2").Include(
+                    "~/Scripts/jquery.isotope.js",
+                    "~/Scripts/jqBootstrapValidation.js",
+                    "~/Scripts/bootstrap.js",
+                    "~/Scripts/SmoothScroll.js",
+                    "~/Scripts/nivo-lightbox.js",
+                    "~/Scripts/contact_me.js",
+                    "~/Scripts/main.js"
+                ));
+            bundles.Add(new StyleBundle("~/myCss").Include(
+                     "~/Content/bootstrap.css",
+                     "~/fonts/font-awesome/css/font-awesome.css",
+                     "~/Content/Site.css"));
         }
     }
 }

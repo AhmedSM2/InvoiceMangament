@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceManagementSystem", "InvoiceManagementSystem\InvoiceManagementSystem.csproj", "{D616F188-204D-470B-B78E-6B4D86128721}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collection.APIs", "Collection.APIs\Collection.APIs.csproj", "{ECB9694A-2086-4623-B3CC-C6DD058C21C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collcection.DAL", "Collcection.DAL\Collcection.DAL.csproj", "{D1BF6BF0-B406-4166-B5E0-83A568691270}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collection.DSL", "Collection.DSL\Collection.DSL.csproj", "{B7E1D5A2-2B57-4A23-A0C4-23819CD5A2CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collection.Entity", "Collection.Entity\Collection.Entity.csproj", "{628D8FB8-45B5-47E9-A502-504D0314907C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collection.Repository", "Collection.Repository\Collection.Repository.csproj", "{0BFD376B-D778-4BFA-95CB-B8F364C31510}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{D616F188-204D-470B-B78E-6B4D86128721}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D616F188-204D-470B-B78E-6B4D86128721}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D616F188-204D-470B-B78E-6B4D86128721}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECB9694A-2086-4623-B3CC-C6DD058C21C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECB9694A-2086-4623-B3CC-C6DD058C21C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECB9694A-2086-4623-B3CC-C6DD058C21C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECB9694A-2086-4623-B3CC-C6DD058C21C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1BF6BF0-B406-4166-B5E0-83A568691270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1BF6BF0-B406-4166-B5E0-83A568691270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1BF6BF0-B406-4166-B5E0-83A568691270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1BF6BF0-B406-4166-B5E0-83A568691270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7E1D5A2-2B57-4A23-A0C4-23819CD5A2CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7E1D5A2-2B57-4A23-A0C4-23819CD5A2CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7E1D5A2-2B57-4A23-A0C4-23819CD5A2CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7E1D5A2-2B57-4A23-A0C4-23819CD5A2CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{628D8FB8-45B5-47E9-A502-504D0314907C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{628D8FB8-45B5-47E9-A502-504D0314907C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{628D8FB8-45B5-47E9-A502-504D0314907C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{628D8FB8-45B5-47E9-A502-504D0314907C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BFD376B-D778-4BFA-95CB-B8F364C31510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BFD376B-D778-4BFA-95CB-B8F364C31510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BFD376B-D778-4BFA-95CB-B8F364C31510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BFD376B-D778-4BFA-95CB-B8F364C31510}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
