@@ -10,34 +10,42 @@ namespace Collection.Repository
     public class Users
     {
         InvoiceDBEntities db = new InvoiceDBEntities();
-        public void addCustomer(User u)
+        public void addUser(User u)
         {
-            var u_no = db.Customers.ToList().Last();
-            u.Customer_No = (u_no);
+            var u_no = db.Users.ToList().Last();
+
+            if (u_no.user_no != null)
+                u.user_no = (u_no.user_no + 1);
+            else
+                u.user_no = 50;
+
             db.Users.Add(u);
             db.SaveChanges();
         }
-        public IEnumerable<User> getAllCustomers()
+        public IEnumerable<User> getAllUsers()
         {
             return db.Users;
         }
-        public User getCust(int id)
+        public User getUser(int id)
         {
             var us = db.Users.SingleOrDefault(m => m.id == id);
             return us;
         }
-        public void editCust(User u)
+        public void editUser(User u)
         {
-            var us = getCust(u.id);
+            var us = getUser(u.id);
+
             us.Name = u.Name;
             us.Active = u.Active;
-            us.Customer_No = u.Customer_No;
+            us.user_name = u.user_name;
+            
             db.SaveChanges();
         }
-        public void deleteCustomer(int id)
+        public void deleteUser(int id)
         {
-            var cust = getCust(id);
-            db.Users.Remove(cust);
+            var Us = getUser(id);
+
+            db.Users.Remove(Us);
             db.SaveChanges();
         }
     }

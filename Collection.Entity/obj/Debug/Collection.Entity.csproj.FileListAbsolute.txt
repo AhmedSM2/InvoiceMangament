@@ -3,3 +3,8 @@ C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\bin\Debug\Collection
 C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\obj\Debug\Collection.Entity.csprojResolveAssemblyReference.cache
 C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\obj\Debug\Collection.Entity.dll
 C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\obj\Debug\Collection.Entity.pdb
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Entity\bin\Debug\Collection.Entity.dll
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Entity\bin\Debug\Collection.Entity.pdb
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Entity\obj\Debug\Collection.Entity.csprojResolveAssemblyReference.cache
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Entity\obj\Debug\Collection.Entity.dll
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Entity\obj\Debug\Collection.Entity.pdb

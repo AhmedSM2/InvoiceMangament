@@ -10,25 +10,26 @@ namespace Collection.DSL
     public class UserDSL
     {
         Users us = new Users();
-        public void addCustomer(Customer c)
+
+        public void addUser(User U, string Active)
         {
-            us.addCustomer(c);
+            us.addUser(U);
         }
-        public IEnumerable<Customer> get_customers()
+        public IEnumerable<User> get_users()
         {
-            return us.getAllCustomers();
+            return us.getAllUsers();
         }
-        public Customer getOneCustomer(int id)
+        public User getOneUser(int id)
         {
-            return us.getCust(id);
+            return us.getUser(id);
         }
-        public void editCustomer(Customer customer)
+        public void editUser(User user)
         {
-            us.editCust(customer);
+            us.editUser(user);
         }
-        public void del_Customer(int id)
+        public void del_User(int id)
         {
-            us.deleteCustomer(id);
+            us.deleteUser(id);
         }
 
     }

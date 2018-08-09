@@ -10,8 +10,17 @@ namespace Collection.DSL
     public class CustomerDSL
     {
         Customers cu = new Customers();
-        public void addCustomer(Customer c)
+        public void addCustomer(Customer c,string Active)
         {
+            if (Active == "on")
+            {
+                c.Active = true;
+
+            }
+            else
+            {
+                c.Active = false;
+            }
             cu.addCustomer(c);
         }
         public IEnumerable<Customer> get_customers()

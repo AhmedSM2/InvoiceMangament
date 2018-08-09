@@ -10,3 +10,15 @@ C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\bin\Debug\Entity
 C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\obj\Debug\Collection.Repository.csprojResolveAssemblyReference.cache
 C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\obj\Debug\Collection.Repository.dll
 C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\obj\Debug\Collection.Repository.pdb
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\obj\Debug\Collection.Repository.csprojResolveAssemblyReference.cache
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\obj\Debug\Collection.Repository.dll
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\obj\Debug\Collection.Repository.pdb
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\bin\Debug\Collection.Repository.dll
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\bin\Debug\Collection.Repository.pdb
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\bin\Debug\Collcection.DAL.dll
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\bin\Debug\EntityFramework.dll
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\bin\Debug\Collcection.DAL.pdb
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\bin\Debug\Collcection.DAL.dll.config
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\bin\Debug\EntityFramework.xml
+C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\bin\Debug\EntityFramework.SqlServer.xml
