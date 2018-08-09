@@ -13,7 +13,7 @@ namespace Collection.Repository
         public void addCustomer(User u)
         {
             var u_no = db.Customers.ToList().Last();
-            u.Customer_No = (u_no. + 1);
+            u.Customer_No = (u_no);
             db.Users.Add(u);
             db.SaveChanges();
         }
