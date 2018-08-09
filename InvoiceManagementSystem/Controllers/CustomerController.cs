@@ -19,18 +19,19 @@ namespace InvoiceManagementSystem.Controllers
         
         public ActionResult AddCustomer(Customer c, string Active)
         {
-            if (Active == "on")
-            {
-                c.Active = true;
 
-            }
-            else
-            {
-                c.Active = false;
-            }
+                if (Active == "on")
+                {
+                    c.Active = true;
 
-            c_dsl.addCustomer(c);
-            return Json(new { result = 1 });
+                }
+                else
+                {
+                    c.Active = false;
+                }
+
+                c_dsl.addCustomer(c);
+                return Json(new { result = 1 });
         }
         [HttpGet]
         public ActionResult editCustomer(int id)
