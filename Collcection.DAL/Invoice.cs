@@ -28,6 +28,7 @@ namespace Collcection.DAL
         public Nullable<System.DateTime> Act_C_Date { get; set; }
         public Nullable<bool> Collected { get; set; }
         public Nullable<int> Customer_Id { get; set; }
+        public Nullable<bool> Suspended { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }

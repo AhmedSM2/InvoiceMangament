@@ -11,7 +11,7 @@ namespace Collection.DSL
     {
         Users us = new Users();
 
-        public void addUser(User U, string Active)
+        public void addUser(User U)
         {
             us.addUser(U);
         }

@@ -1,0 +1,28 @@
+﻿@model Collection.Entity.Cust_Innove_Membership
+
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Index2</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@foreach (var item in Model.ListInvoices)
+{
+    <h4>@item.Issue_Date</h4>
+    
+}
+<select>
+    @foreach (var item2 in Model.ListCustomers)
+    {
+        <option>@item2.Name ---- @item2.id</option>
+    }
+</select>
+@*@foreach (var item in Model.ListCustomers.Zip(Model.ListInvoices, (a, b) => new { A = a, B = b }))
+{
+    <h4>@item.A.Customer_No +</h4>
+
+}*@

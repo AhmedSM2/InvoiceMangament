@@ -11,14 +11,19 @@ namespace Collection.Repository
         InvoiceDBEntities db = new InvoiceDBEntities();
         public void addCustomer(Customer c)
         {
-            var c_no = db.Customers.ToList().Last();
-            c.Customer_No = (c_no.Customer_No + 1);
+            //var c_no = db.Customers.ToList().Last();
+            //c.Customer_No = (c_no.Customer_No + 1);
             db.Customers.Add(c);
             db.SaveChanges();
         }
         public IEnumerable<Customer> getAllCustomers()
         {
             return db.Customers;
+        }
+        public int check_c_exsit()
+        {
+            var counter = db.Customers.Count();
+            return counter;
         }
         public Customer getCust(int id)
         {
@@ -38,6 +43,11 @@ namespace Collection.Repository
             var cust = getCust(id);
             db.Customers.Remove(cust);
             db.SaveChanges();
+        }
+        public Customer getLastOne()
+        {
+            var r = db.Customers.ToList().Last();
+            return r;
         }
     }
 }

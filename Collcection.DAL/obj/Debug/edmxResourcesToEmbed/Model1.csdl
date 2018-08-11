@@ -36,6 +36,7 @@
     <Property Name="Customer_Id" Type="Int32" />
     <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Invoices" FromRole="Invoices" ToRole="Comment" />
     <NavigationProperty Name="Customer" Relationship="Self.FK_Invoices_Customer" FromRole="Invoices" ToRole="Customer" />
+    <Property Name="Suspended" Type="Boolean" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>

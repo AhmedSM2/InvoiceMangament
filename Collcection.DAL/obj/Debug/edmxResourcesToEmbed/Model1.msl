@@ -25,6 +25,7 @@
     <EntitySetMapping Name="Invoices">
       <EntityTypeMapping TypeName="InvoiceDBModel.Invoice">
         <MappingFragment StoreEntitySet="Invoices">
+          <ScalarProperty Name="Suspended" ColumnName="Suspended" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="invoice_no" ColumnName="invoice_no" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />

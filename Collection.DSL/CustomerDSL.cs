@@ -10,7 +10,7 @@ namespace Collection.DSL
     public class CustomerDSL
     {
         Customers cu = new Customers();
-        public void addCustomer(Customer c,string Active)
+        public void addCustomer(Customer c,int Customer_No,string Active)
         {
             if (Active == "on")
             {
@@ -21,6 +21,7 @@ namespace Collection.DSL
             {
                 c.Active = false;
             }
+            c.Customer_No = Customer_No;
             cu.addCustomer(c);
         }
         public IEnumerable<Customer> get_customers()
@@ -38,6 +39,14 @@ namespace Collection.DSL
         public void del_Customer(int id)
         {
             cu.deleteCustomer(id);
+        }
+        public int count_customer()
+        {
+            return cu.check_c_exsit();
+        }
+        public Customer lastCustomer()
+        {
+            return cu.getLastOne();
         }
     }
 }

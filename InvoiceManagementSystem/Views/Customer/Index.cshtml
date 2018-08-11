@@ -2,8 +2,15 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout2.cshtml";
-    var temp= Model.ToList().Last().Customer_No + 1; 
-
+    int temp = 0;
+    if (ViewBag.count <=0)
+    {
+        temp = 1;
+    }
+    else
+    {
+        temp = (Int32)Model.ToList().Last().Customer_No + 1;
+    }
 }
 
 <h2>Index</h2>
@@ -24,11 +31,10 @@
                 </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="t_body">
            @foreach (var item in Model)
            {
-               
-            <tr>
+            <tr id="customer_@item.id">
                 <td>
                     @Html.DisplayFor(modelItem => item.Customer_No)
                 </td>
@@ -47,13 +53,12 @@
                             <span class="label label-danger">@active</span>
                         }
                     }
-                   
-                    @*@Html.LabelFor(modelItem => item.Active.g , new { @class = "label label-default" })*@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "editCustomer", new { id = item.id }, new {  @class = "btn btn-success"})
               @*      @Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "btn btn-info" })*@
-                    @Html.ActionLink("Delete", "delteCustomer", new { id = item.id }, new { @class = "btn btn-warning" })
+                    @*@Html.ActionLink("Delete", "delteCustomer", new { id = item.id }, new { @class = "btn btn-warning" })*@
+                    <button type="button" class = "btn btn-warning" id="delete" onclick="DeleteCustomer(@item.id)">Delete</button>
                 </td>
             </tr>
            }
@@ -67,7 +72,8 @@
     <div class="form">
         <div class="form-group">
             <label for="exampleFormControlInput1">Customer Number</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=@temp disabled>
+            <input type="hidden" class="form-control" name="Customer_No" value=@temp>
+            <input type="text" class="form-control" name="" value=@temp  disabled="disabled">
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Customer Name</label>
@@ -87,14 +93,33 @@
     </form>*@
 @section Scripts{
 @Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/jqueryval")
+@*@Scripts.Render("~/bundles/jqueryval")*@
 <script>
+    function DeleteCustomer(id) {
+        //debugger;
+        if (confirm("Are you sure?")) {
+            $.ajax({
+                type: "GET",
+                url: "/Customer/delteCustomer/" + id,
+                success: function (result) {
+                    if (result != 1) {
+                        $("#customer_" + id).remove();
+                    }
+                    else {
+                        alert("error");
+                    }
+                }
+            })
+        }
+        
+    }
     $(document).ready(function () {
+        
         $("#add-cust").click(function () {
             $("#save").slideToggle(1000);
         });
         $("#send").click(function () {
-            debugger;
+            //debugger;
             if ($("#name").val() != '') {
                 var mydata = $("#save").serialize();
                 $.ajax({
@@ -103,6 +128,10 @@
                     data: mydata,
                     success: function (result) {
                         alert("done");
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status);
+                        alert(thrownError);
                     }
                 })
             }

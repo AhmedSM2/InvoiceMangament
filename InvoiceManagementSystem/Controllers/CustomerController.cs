@@ -13,14 +13,14 @@ namespace InvoiceManagementSystem.Controllers
         // GET: Customer
         public ActionResult Index()
         {
+            ViewBag.count = c_dsl.count_customer();
             //var lst = c_dsl.
             return View(c_dsl.get_customers());
         }
         
-        public ActionResult AddCustomer(Customer c, string Active)
+        public ActionResult AddCustomer( int Customer_No,Customer c,string Active)
         {
-            
-            c_dsl.addCustomer(c,Active);
+            c_dsl.addCustomer(c, Customer_No,Active);
             return Json(new { result = 1 });
         }
         [HttpGet]
@@ -34,10 +34,12 @@ namespace InvoiceManagementSystem.Controllers
             c_dsl.editCustomer(cust);
             return RedirectToAction("Index");
         }
+        [HttpGet]
         public ActionResult delteCustomer(int id)
         {
             c_dsl.del_Customer(id);
-            return RedirectToAction("Index");
+            return Json( new { result = 1 },JsonRequestBehavior.AllowGet) ;
+            //return RedirectToAction("Index");
         }
     }
 }

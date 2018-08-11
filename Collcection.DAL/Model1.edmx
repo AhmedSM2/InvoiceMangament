@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="comment" Type="nvarchar" MaxLength="150" />
           <Property Name="Date" Type="datetime" />
           <Property Name="User_id" Type="int" />
@@ -28,7 +28,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="invoice_no" Type="int" Nullable="false" />
           <Property Name="Amount" Type="int" Nullable="false" />
           <Property Name="Issue_Date" Type="datetime" />
@@ -36,6 +36,7 @@
           <Property Name="Act_C_Date" Type="datetime" />
           <Property Name="Collected" Type="bit" />
           <Property Name="Customer_Id" Type="int" />
+          <Property Name="Suspended" Type="bit" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -51,14 +52,14 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type_name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_no" Type="int" />
           <Property Name="user_name" Type="nvarchar" MaxLength="150" />
           <Property Name="Name" Type="nvarchar" MaxLength="150" />
@@ -178,6 +179,7 @@
           <Property Name="Customer_Id" Type="Int32" />
           <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Invoices" FromRole="Invoices" ToRole="Comment" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_Invoices_Customer" FromRole="Invoices" ToRole="Customer" />
+          <Property Name="Suspended" Type="Boolean" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -313,6 +315,7 @@
           <EntitySetMapping Name="Invoices">
             <EntityTypeMapping TypeName="InvoiceDBModel.Invoice">
               <MappingFragment StoreEntitySet="Invoices">
+                <ScalarProperty Name="Suspended" ColumnName="Suspended" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="invoice_no" ColumnName="invoice_no" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />

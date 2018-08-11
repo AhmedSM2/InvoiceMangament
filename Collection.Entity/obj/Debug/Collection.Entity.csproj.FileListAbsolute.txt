@@ -8,3 +8,8 @@ C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Entity\bin\Debug\Colle
 C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Entity\obj\Debug\Collection.Entity.csprojResolveAssemblyReference.cache
 C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Entity\obj\Debug\Collection.Entity.dll
 C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Entity\obj\Debug\Collection.Entity.pdb
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\bin\Debug\Collcection.DAL.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\bin\Debug\EntityFramework.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\bin\Debug\Collcection.DAL.pdb
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\bin\Debug\Collcection.DAL.dll.config
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Entity\bin\Debug\EntityFramework.xml
