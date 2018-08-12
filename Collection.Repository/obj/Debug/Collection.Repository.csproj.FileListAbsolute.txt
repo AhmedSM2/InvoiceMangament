@@ -22,3 +22,5 @@ C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\bin\Debug\C
 C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\bin\Debug\Collcection.DAL.dll.config
 C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\bin\Debug\EntityFramework.xml
 C:\Users\yossef\Source\Repos\InvoiceMangament2\Collection.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\bin\Debug\Collection.Entity.dll
+C:\Users\A1\Source\Repos\InvoiceMangament\Collection.Repository\bin\Debug\Collection.Entity.pdb

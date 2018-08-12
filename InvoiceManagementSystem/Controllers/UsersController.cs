@@ -15,15 +15,21 @@ namespace InvoiceManagementSystem.Controllers
         {
             return View(u_dsl.get_users());
         }
+        
         [HttpGet]
         public ActionResult Add_User()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Add_User(User U)
+        public ActionResult Add_User(User U,string c)
         {
-
+            if(c == "on")
+            {
+                U.Active = true;
+            }
+            else { U.Active = false; }
+            U.Type =2 ;
             u_dsl.addUser(U);
             return Content("done");
         }

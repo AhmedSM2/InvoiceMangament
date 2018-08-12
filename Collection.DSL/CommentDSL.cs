@@ -14,5 +14,13 @@ namespace Collection.DSL
         {
             return cm_repo.SpecificComments(id);
         }
+        public IEnumerable<Comment> getListComments(int id)
+        {
+            return cm_repo.ListComment(id);
+        }
+        public void AddComment(string comment, int id, int invo_id)
+        {
+            cm_repo.AddComment(comment, id, invo_id);
+        }
     }
 }

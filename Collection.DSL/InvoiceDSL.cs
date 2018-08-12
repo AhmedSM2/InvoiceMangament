@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Collection.Repository;
 using Collcection.DAL;
+using Collection.Entity;
 namespace Collection.DSL
 {
     public class InvoiceDSL
@@ -30,9 +31,23 @@ namespace Collection.DSL
         {
             invo.editInvo(i);
         }
+        public void editInvoice2(Invoice_comments_membership i)
+        {
+            invo.editInvo2(i);
+        }
         public Invoice getInvoice(int i)
         {
             return invo.getInov(i);
+        }
+        public Invoice_comments_membership getInvoice_comments(int i)
+        {
+            CommentRepo c_repo = new CommentRepo();
+            Invoice_comments_membership im = new Invoice_comments_membership
+            {
+                invoice_obj = invo.getInov(i),
+                CommentsList =  c_repo.ListComment(i)
+            };
+            return im;
         }
         public void Pay(int id,DateTime d)
         {

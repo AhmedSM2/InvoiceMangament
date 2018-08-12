@@ -1,28 +1,279 @@
 ﻿@model Collection.Entity.Cust_Innove_Membership
 
+
 @{
-    ViewBag.Title = "Index2";
+    ViewBag.Title = "Invoices List";
     Layout = "~/Views/Shared/_Layout2.cshtml";
-}
-
-<h2>Index2</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-@foreach (var item in Model.ListInvoices)
-{
-    <h4>@item.Issue_Date</h4>
-    
-}
-<select>
-    @foreach (var item2 in Model.ListCustomers)
+    int temp = 0;
+    if (ViewBag.InvoCount <= 0)
     {
-        <option>@item2.Name ---- @item2.id</option>
+        temp = 1;
     }
-</select>
-@*@foreach (var item in Model.ListCustomers.Zip(Model.ListInvoices, (a, b) => new { A = a, B = b }))
-{
-    <h4>@item.A.Customer_No +</h4>
+    else
+    {
+        temp = (Int32)Model.ListInvoices.ToList().Last().invoice_no + 1;
+    }
+}
 
-}*@
+<h2>Invoices Index</h2>
+<div class="row2">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="IDateTo" class="input">Issue Date From:</label>
+            <input type="date" class="form-control box" id="IDateFrom" name="IDateFrom">
+
+        </div>
+        <div class="form-group">
+            <label class="input" for="IDateFrom">Issue Date to:</label>
+            <input type="date" class="form-control box" id="IDateTo" name="IDateTo">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="input" for="CDateTo">Collection Date From:</label>
+            <input type="date" id="CDateTo" class="form-control box" name="CDateFrom">
+
+        </div>
+        <div class="form-group">
+            <label class="input" for="CDateFrom">Collection Date to:</label>
+            <input type="date" id="CDateFrom" class="form-control box" name="CDateTo">
+
+        </div>
+    </div>
+</div>
+<div style="clear:both"></div>
+<div class="form-group col-md-3">
+    <select id="customer" value="0" class="form-control">
+        <option value="0">Please select customer</option>
+        @foreach (var item in Model.ListCustomers)
+        {
+            <option value="@item.Name">@item.Name</option>
+        }
+    </select>
+ </div>
+ <button id="btn1" type="button" data-dismiss="modal" class="btn btn-primary">Search</button><hr />
+
+    <!---------------------------------------->
+    <table class="table table-bordered" id="invoiceTable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Invo_obj.invoice_no)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Invo_obj.Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Invo_obj.Issue_Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Invo_obj.Collect_Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Invo_obj.Act_C_Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Invo_obj.Collected)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Invo_obj.Suspended)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Invo_obj.Comments)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Invo_obj.Customer.Name)
+                </th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="">Add Invoice</button>
+    <hr />
+    <!-- Add Invoice-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Add Invocie Form</h4>
+                </div>
+                <form id="save2" style="display:block" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Invoice Number</label>
+                            <input type="text" class="form-control" placeholder=@temp disabled>
+                            <input type="hidden" class="form-control" id="recipient-name" name="i.invoice_no" value=@temp>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Invoice Date</label>
+                            <input type="datetime-local" class="form-control" id="InvoiceDate" name="i.Issue_Date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sel1">Select list:</label>
+                            <select class="form-control" id="sel1" name="i.Customer_Id" required>
+                                <option selected="selected">Select Customer</option>
+                                @foreach (var item2 in Model.ListCustomers)
+                                {
+                                <option value=@item2.id>@item2.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Amount</label>
+                            <input type="number" class="form-control" id="recipient-name" name="i.Amount" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Collection Date</label>
+                            <input type="datetime-local" class="form-control" id="recipient-name" name="i.Collect_Date" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="send2">Add</button>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts{
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        <script>
+        function DeleteInvoice(id) {
+            //debugger;
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    type: "GET",
+                    url: "/Invoice/delteInvoice/" + id,
+                    success: function (result) {
+                        //$("#invvo_" + id).remove();
+                        location.reload();
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                })
+            }
+        }
+        $(document).ready(function () {
+            $("#send2").click(function () {
+                var mydata = $("#save2").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "/Invoice/AddInvoice",
+                    data: mydata,
+                    success: function (result) {
+                        //if (result.r == 1) {
+                            //$("#t_view").reload();
+                            location.reload();
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        //alert(xhr.status);
+                        //alert(thrownError);
+                    }
+                })
+            })
+        })
+        //pay fun
+        </script>
+        <!--Adding invoice form (popup)-->
+        <script>
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var d = new Date();
+            d.setHours(d.getHours() + 2);
+            var elem = document.getElementById("InvoiceDate");
+            elem.value = d.toISOString().slice(0, 16);
+            console.log(d);
+        })
+        //$("#InvoiceDate").val($.now());
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+        </script>
+
+        <!--Search-->
+        <script>
+            $(document).ready(function () {
+                $('#btn1').click(function () {
+                    var val1 = $("#IDateTo").val();
+                    var val2 = $("#IDateFrom").val();
+                    var val3 = $("#CDateTo").val();
+                    var val4 = $("#CDateFrom").val();
+                    var name = $("#customer").val();
+                    $.ajax({
+                        type: "POST",
+                        url: '/Invoice/SearchResult',
+                        data: { IssueTo: val1, IssueFrom: val2, ColTo: val3, ColFrom: val4, Customer: name },
+                        type: "POST",
+                        dataType: 'json',
+                        success: function (data) {
+                            $('#invoiceTable tbody > tr').remove();
+                            $.each(data, function (index, item) {
+                                var Collected = "<input type='checkbox' disabled >";
+                                var Suspended = "<input type='checkbox' disabled >";
+                                if (item.Collected == true) { Collected = "<input type='checkbox' checked disabled> " }
+                                if (item.Suspended == true) { Suspended = "<input type='checkbox' checked disabled> " }
+                                var rows = "<tr>" +
+                                    "<td>" + item.invoice_no + "</td>" +
+                                    "<td>" + item.Amount + "</td>" +
+                                    "<td>" + item.Issue_Date + "</td>" +
+                                    "<td>" + item.Collect_Date + "</td> " +
+                                    "<td>" + item.Act_C_Date + "</td> " +
+                                    "<td>" + Collected + "</td> " +
+                                    "<td>" + Suspended + "</td> " +
+                                    "<td>" + item.Comments + "</td> " +
+                                    "<td>" + item.Customer.Name + "</td> " +
+                                    "<td>" + "<button id='btn1' type='button' onclick='edit(" + item.id + ")'  class='btn btn-info'>" + "Edit" + "</button>" + " " +
+                                    "<button id='btn1' type='button' onclick='pay(" + item.id + ")'  class = 'btn btn-success'>" + "Pay" + "</button>" + " " +
+                                    "<button id='btn1' type='button' onclick='DeleteInvoice(" + item.id + ")'  class='btn btn-danger'>" + "Delete" + "</button>" + "</td>" +
+                                    +"</tr>";
+
+                                $('#invoiceTable').append(rows);
+
+                            });
+                        },
+                        error: function (response) {
+                            alert("Invalid, Please enter the data correctly");
+                        }
+                    });
+                });
+            });
+            function edit(x) {
+                window.location.href = '/Invoice/EditInvoice/' + x;
+            }
+            function pay(x) {
+                window.location.href = '/Invoice/PayInvoice/' + x;
+            }
+            function DeleteInvoice(id) {
+                //debugger;
+                if (confirm("Are you sure?")) {
+                    $.ajax({
+                        type: "GET",
+                        url: "/Invoice/delteInvoice/" + id,
+                        success: function (result) {
+                            //$("#invvo_" + id).remove();
+                            location.reload();
+                        },
+                        error: function () {
+                            alert("error");
+                        }
+                    })
+                }
+            }
+        </script>
+
+    }
+    <style>
+        .row {
+            margin-right: -65px;
+            margin-left: -65px;
+        }
+        .row2 {
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+    </style>

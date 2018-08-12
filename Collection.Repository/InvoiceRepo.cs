@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Collcection.DAL;
-
+using Collection.Entity;
 namespace Collection.Repository
 {
     public class InvoiceRepo
@@ -33,6 +33,26 @@ namespace Collection.Repository
         {
             var invo = getInov(id);
             db.Invoices.Remove(invo);
+            db.SaveChanges();
+        }
+        public void editInvo2(Invoice_comments_membership i)
+        {
+            CommentRepo c = new CommentRepo();
+            var invo = getInov(i.invoice_obj.id);
+            invo.Act_C_Date = i.invoice_obj.Act_C_Date;
+            invo.Customer_Id = i.invoice_obj.Customer_Id;
+            invo.invoice_no = i.invoice_obj.invoice_no;
+            invo.Issue_Date = i.invoice_obj.Issue_Date;
+            invo.Suspended = i.invoice_obj.Suspended;
+            invo.Amount = i.invoice_obj.Amount;
+            invo.Collected = i.invoice_obj.Collected;
+            invo.Collect_Date = i.invoice_obj.Collect_Date;
+            invo.Comments = i.invoice_obj.Comments;
+            invo.Customer_Id = i.invoice_obj.Customer_Id;
+            //if(i.comment_obj.comment1 != null)
+            //{
+            //    db.Comments.Add(i.comment_obj);
+            //}
             db.SaveChanges();
         }
         public void editInvo(Invoice i)

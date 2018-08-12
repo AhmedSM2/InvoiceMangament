@@ -1,9 +1,8 @@
-﻿@*@model IEnumerable<Collcection.DAL.Invoice>*@
-@model Collection.Entity.Cust_Innove_Membership
+﻿@model Collection.Entity.Cust_Innove_Membership
 
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Invoices List";
     Layout = "~/Views/Shared/_Layout2.cshtml";
     int temp = 0;
     if (ViewBag.InvoCount <= 0)
@@ -16,11 +15,8 @@
     }
 }
 
-<h2>Index</h2>
+<h2>Invoices Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table table-bordered" id="t_view">
     <tr>
         <th>

@@ -14,7 +14,21 @@ namespace Collection.Repository
         public IEnumerable<Comment> SpecificComments(int id)
         {
             return db.Comments;
-            //return db.Comments.Where(m=> m.Invoices_Id == id);
+        }
+        public IEnumerable<Comment> ListComment(int id)
+        {
+            return db.Comments.Where(m => m.Invoices_Id == id);
+        }
+        public void AddComment(string comment,int id,int invo_id)
+        {
+            DateTime d = DateTime.Now.ToLocalTime();
+            Comment c = new Comment();
+            c.comment1 = comment;
+            c.Date = d;
+            c.User_id = id;
+            c.Invoices_Id = invo_id;
+            db.Comments.Add(c);
+            db.SaveChanges();
         }
     }
 }

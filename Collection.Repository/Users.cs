@@ -10,6 +10,10 @@ namespace Collection.Repository
     public class Users
     {
         InvoiceDBEntities db = new InvoiceDBEntities();
+        public User Login(User u)
+        {
+            return db.Users.SingleOrDefault(m => m.user_name == u.user_name && m.password == u.password);
+        }
         public void addUser(User u)
         {
             var u_no = db.Users.ToList().Last();

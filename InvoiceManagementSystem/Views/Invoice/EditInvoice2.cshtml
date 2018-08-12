@@ -1,0 +1,13 @@
+﻿@model Collection.Entity.Invoice_comments_membership
+@{
+    ViewBag.Title = "EditInvoice2";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>EditInvoice2</h2>
+
+@foreach (var i in Model.CommentsList)
+{
+    <h1>@i.comment1</h1>
+}
+<h2>@Model.invoice_obj.Customer.Name</h2>

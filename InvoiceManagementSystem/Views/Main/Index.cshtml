@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Collcection.DAL.User
+@{
     ViewBag.Title = "Index";
     Layout = null;
 }
@@ -42,8 +43,8 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                 @*<a class="navbar-brand page-scroll nav-me" href="#page-top">
-                    <img src="~/Content/img/1820203_logo_1454834255.png" />
-                </a>*@
+                        <img src="~/Content/img/1820203_logo_1454834255.png" />
+                    </a>*@
                 <a class="navbar-brand page-scroll" href="#page-top">invoices</a>
             </div>
 
@@ -69,73 +70,76 @@
                         <div class="intro-text">
                             <h1>NATIONAL TECHNOLOGY</h1>
                             <p class="" style="text-align:center">
-                            OUR COMPANY
-                            National Technology is a leading LIMS market player with a
-                            customer base of more than 230 customers,
-                            including the biggest entities in the private and public health sector in Egypt, 
-                            also operating in other countries in MENA region and Africa 
-                            (KSA, UAE, Kuwait, Qatar, Iraq, Sudan and Nigeria).</p>
+                                OUR COMPANY
+                                National Technology is a leading LIMS market player with a
+                                customer base of more than 230 customers,
+                                including the biggest entities in the private and public health sector in Egypt,
+                                also operating in other countries in MENA region and Africa
+                                (KSA, UAE, Kuwait, Qatar, Iraq, Sudan and Nigeria).
+                            </p>
                             <div style="clear:both  "></div>
                             <button type="button" class="btn btn-custom btn-lg page-scroll" data-toggle="modal" data-target="#myModal">Login/Signin</button>
-                      @*      <a href="#about" class="btn btn-custom btn-lg page-scroll">Login/Signin</a>*@
+                            @*      <a href="#about" class="btn btn-custom btn-lg page-scroll">Login/Signin</a>*@
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
-    <!-- Examples -->
-    <div class="ex">
-        <!--login form-->
-                    <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
+    <!--login form-->
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
             <!-- Modal content-->
             <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Login/Sigin</h4>
-              </div>
-              <div class="modal-body">
-                  <!--begin login form-->
-                      <div class="login-form">
-                          <div class="main-div">
-                              <div class="panel">
-                                  <h2>Welcome to our website</h2>
-                                  <p>Please enter your email and password</p>
-                              </div>
-                              <form id="Login">
-                                  <div class="form-group">
-                                      <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
-                                  </div>
-                                  <div class="form-group">
-                                      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                                  </div>
-                                  <div class="forgot">
-                                      <a href="reset.html">Forgot password?</a>
-                                  </div>
-                                  <button type="submit" class="btn btn-primary">Login</button>
-                              </form>
-                          </div>
-                          <p class="botto-text"> Designed by Sunil Rajput</p>
-                      </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Login/Sigin</h4>
+                </div>
+                <div class="modal-body">
+                    <!--begin login form-->
+                    <div class="login-form">
+                        <div class="main-div">
+                            <div class="panel">
+                                <h2>Welcome to our website</h2>
+                                <p>Please enter your email and password</p>
+                            </div>
+                            @using (Html.BeginForm())
+                            {
+                                <div class="form-group">
+                                    @*  <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">*@
+                                    @Html.EditorFor(m => m.user_name, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+
+                                    <div class="form-group">
+                                        @Html.EditorFor(m => m.password, new { htmlAttributes = new { @class = "form-control", @type = "Password" } })
+                                        @*       <input type="password" class="form-control" id="inputPassword" placeholder="Password">*@
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Login</button>
+                            }
+                        </div>
+                        <p class="botto-text"> Designed by Sunil Rajput</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
-          </div>
         </div>
     </div>
+
+    <!-- Examples -->
+    @*<div class="ex">
+
+    </div>*@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.isotope.js"></script>
     <script type="text/javascript" src="~/Scripts/jqBootstrapValidation.js"></script>
     <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
-    <script type="text/javascript" src="~/Scripts/SmoothScroll.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/SmoothScroll.js"></script>*@
     <script type="text/javascript" src="~/Scripts/nivo-lightbox.js"></script>
-    <script type="text/javascript" src="~/Scripts/contact_me.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/contact_me.js"></script>*@
     <script type="text/javascript" src="~/Scripts/main.js"></script>
 </body>
 </html>

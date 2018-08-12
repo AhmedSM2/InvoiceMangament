@@ -10,7 +10,10 @@ namespace Collection.DSL
     public class UserDSL
     {
         Users us = new Users();
-
+        public User Login(User u)
+        {
+            return us.Login(u);
+        }
         public void addUser(User U)
         {
             us.addUser(U);

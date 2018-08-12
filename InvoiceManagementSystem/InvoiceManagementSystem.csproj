@@ -300,8 +300,9 @@
     <Content Include="Views\Customer\editCustomer.cshtml" />
     <Content Include="Views\Users\Add_User.cshtml" />
     <Content Include="Views\Invoice\Index.cshtml" />
-    <Content Include="Views\Invoice\Index2.cshtml" />
     <Content Include="Views\Invoice\EditInvoice.cshtml" />
+    <Content Include="Views\Invoice\EditInvoice2.cshtml" />
+    <Content Include="Views\Invoice\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

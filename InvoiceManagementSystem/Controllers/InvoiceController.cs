@@ -7,6 +7,7 @@ using Collection.DSL;
 using Collcection.DAL;
 using Collection.Entity;
 using System.Web.Services;
+using Newtonsoft.Json;
 
 namespace InvoiceManagementSystem.Controllers
 {
@@ -29,8 +30,9 @@ namespace InvoiceManagementSystem.Controllers
         }
         public ActionResult Index2()
         {
-            // ViewBag.InvoCount = inv_Dsl.CountInvo();
-            Cust_Innove_Membership m = new Cust_Innove_Membership {
+            ViewBag.InvoCount = inv_Dsl.CountInvo();
+            Cust_Innove_Membership m = new Cust_Innove_Membership
+            {
                 ListInvoices = inv_Dsl.ListAllInvoices().ToList(),
                 ListCustomers = cu_Dsl.get_customers().ToList(),
                 ListComments = cm_Dsl.getspecificComments(0).ToList()
@@ -59,10 +61,22 @@ namespace InvoiceManagementSystem.Controllers
         [HttpGet]
         public ActionResult EditInvoice(int id)
         {
-            return View(inv_Dsl.getInvoice(id));
+            return View(inv_Dsl.getInvoice_comments(id));
         }
         [HttpPost]
-        public ActionResult EditInvoice(Invoice i)
+        public ActionResult EditInvoice(Invoice_comments_membership i)
+        {
+            inv_Dsl.editInvoice2(i);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult EditInvoice2(int id)
+        {
+            return View(inv_Dsl.getInvoice_comments(id));
+        }
+        [HttpPost]
+        public ActionResult EditInvoice2(Invoice i)
         {
             inv_Dsl.editInvoice(i);
             return RedirectToAction("Index");
@@ -80,6 +94,67 @@ namespace InvoiceManagementSystem.Controllers
             DateTime d1 = DateTime.Now.ToLocalTime();
             inv_Dsl.Pay(id, d1);
             return RedirectToAction("Index");
+        }
+        // Add comment 
+        public ActionResult AddComment(string comment, int id, int invo_id)
+        {
+            cm_Dsl.AddComment(comment, id, invo_id);
+            return RedirectToAction("Index");
+        }
+        // search
+        public string SearchResult(string IssueFrom, string IssueTo, string ColFrom, string ColTo, string Customer)
+        {
+            Cust_Innove_Membership m = new Cust_Innove_Membership
+            {
+                ListInvoices = inv_Dsl.ListAllInvoices().ToList(),
+                ListCustomers = cu_Dsl.get_customers().ToList(),
+                ListComments = cm_Dsl.getspecificComments(0).ToList()
+            };
+
+            DateTime A = new DateTime(2018, 1, 1);
+            var invoices2 = new List<Invoice> ();
+            DateTime IT = CreateDateTime(IssueTo);
+            DateTime IF = CreateDateTime(IssueFrom);
+
+            if (Customer == "0")
+            {
+                foreach (var item in m.ListInvoices)
+                {
+
+                    if (item.Issue_Date >= IF && item.Issue_Date <= IT)
+                    {
+                        invoices2.Add(item);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var item in m.ListInvoices)
+                {
+                    if (item.Issue_Date >= IF && item.Issue_Date <= IT && Customer == item.Customer.Name)
+                    {
+                        invoices2.Add(item);
+                    }
+                }
+            }
+            var a = Newtonsoft.Json.JsonConvert.SerializeObject(invoices2,
+                Formatting.None, new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+
+
+            return a;
+        }
+        public DateTime CreateDateTime(string a)
+        {
+            int year = Convert.ToInt32((a.Split('-'))[0]);
+            int month = Convert.ToInt32((a.Split('-'))[1]);
+            int day = Convert.ToInt32((a.Split('-'))[2]);
+
+            DateTime A = new DateTime(year, month, day);
+            return A;
+
         }
     }
 }
