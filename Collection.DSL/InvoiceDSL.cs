@@ -45,7 +45,7 @@ namespace Collection.DSL
             Invoice_comments_membership im = new Invoice_comments_membership
             {
                 invoice_obj = invo.getInov(i),
-                CommentsList =  c_repo.ListComment(i)
+              //  CommentsList =  c_repo.ListComment(i)
             };
             return im;
         }

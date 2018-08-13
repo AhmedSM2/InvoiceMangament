@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Collection.DSL;
 using Collcection.DAL;
+using System.Runtime.InteropServices;
+
 namespace InvoiceManagementSystem.Controllers
 {
     public class CustomerController : Controller
@@ -18,7 +20,7 @@ namespace InvoiceManagementSystem.Controllers
             return View(c_dsl.get_customers());
         }
         
-        public ActionResult AddCustomer( int Customer_No,Customer c,string Active)
+        public ActionResult AddCustomer(Customer c,  string Active, int Customer_No=0)
         {
             c_dsl.addCustomer(c, Customer_No,Active);
             return Json(new { result = 1 });

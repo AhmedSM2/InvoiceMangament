@@ -23,7 +23,7 @@ namespace InvoiceManagementSystem.Controllers
             var temp = Session["UserInfo"] as User;
             if (temp != null)
             {
-                return RedirectToAction("Index", "Invoice");
+                return RedirectToAction("Index2", "Invoice");
             }
             return View();
         }

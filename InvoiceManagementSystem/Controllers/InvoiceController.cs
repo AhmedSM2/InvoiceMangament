@@ -41,7 +41,7 @@ namespace InvoiceManagementSystem.Controllers
         }
         public ActionResult AddInvoice(Invoice i)
         {
-            if(i.Customer_Id != null && i.Collect_Date != null && i.Amount != null && i.Issue_Date != null)
+            if(i.Customer_Id != null && i.Collect_Date != null && i.Amount != 0 && i.Issue_Date != null)
             {
                 inv_Dsl.AddInvoice(i);
                 return Json(new { r = 1 });
@@ -61,13 +61,14 @@ namespace InvoiceManagementSystem.Controllers
         [HttpGet]
         public ActionResult EditInvoice(int id)
         {
+            var a = inv_Dsl.getInvoice_comments(id);
             return View(inv_Dsl.getInvoice_comments(id));
         }
         [HttpPost]
         public ActionResult EditInvoice(Invoice_comments_membership i)
         {
             inv_Dsl.editInvoice2(i);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index2");
         }
 
         [HttpGet]
@@ -93,13 +94,13 @@ namespace InvoiceManagementSystem.Controllers
         {
             DateTime d1 = DateTime.Now.ToLocalTime();
             inv_Dsl.Pay(id, d1);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index2");
         }
         // Add comment 
         public ActionResult AddComment(string comment, int id, int invo_id)
         {
             cm_Dsl.AddComment(comment, id, invo_id);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index2");
         }
         // search
         public string SearchResult(string IssueFrom, string IssueTo, string ColFrom, string ColTo, string Customer)
@@ -115,6 +116,8 @@ namespace InvoiceManagementSystem.Controllers
             var invoices2 = new List<Invoice> ();
             DateTime IT = CreateDateTime(IssueTo);
             DateTime IF = CreateDateTime(IssueFrom);
+            //DateTime Col1 = CreateDateTime(ColTo);
+            //DateTime col2 = CreateDateTime(ColFrom);
 
             if (Customer == "0")
             {
@@ -131,13 +134,13 @@ namespace InvoiceManagementSystem.Controllers
             {
                 foreach (var item in m.ListInvoices)
                 {
-                    if (item.Issue_Date >= IF && item.Issue_Date <= IT && Customer == item.Customer.Name)
+                    if (item.Issue_Date >= IF && item.Issue_Date <= IT && Customer == item.Customer.Name /*&& item.Collect_Date >= Col1 && item.Collect_Date <= col2*/)
                     {
                         invoices2.Add(item);
                     }
                 }
             }
-            var a = Newtonsoft.Json.JsonConvert.SerializeObject(invoices2,
+            var a =JsonConvert.SerializeObject(invoices2,
                 Formatting.None, new JsonSerializerSettings()
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore

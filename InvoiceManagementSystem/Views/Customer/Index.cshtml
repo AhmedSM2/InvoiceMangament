@@ -2,15 +2,15 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout2.cshtml";
-    int temp = 0;
-    if (ViewBag.count <=0)
-    {
-        temp = 1;
-    }
-    else
-    {
-        temp = (Int32)Model.ToList().Last().Customer_No + 1;
-    }
+    //int temp = 0;
+    //if (ViewBag.count <=0)
+    //{
+    //    temp = 1;
+    //}
+    //else
+    //{
+    //    temp = (Int32)Model.ToList().Last().Customer_No + 1;
+    //}
 }
 
 <h2>Index</h2>
@@ -72,8 +72,8 @@
     <div class="form">
         <div class="form-group">
             <label for="exampleFormControlInput1">Customer Number</label>
-            <input type="hidden" class="form-control" name="Customer_No" value=@temp>
-            <input type="text" class="form-control" name="" value=@temp  disabled="disabled">
+            <input type="number" class="form-control" name="Customer_No" >
+            @*<input type="text" class="form-control" name="Customer_No" value=@temp  disabled="disabled">*@
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Customer Name</label>
@@ -87,19 +87,16 @@
         <button type="submit" class="btn btn-primary" id="send">Add</button>
     </div>
 </form>
-    
-@*<form>
 
-    </form>*@
 @section Scripts{
 @Scripts.Render("~/bundles/jquery")
-@*@Scripts.Render("~/bundles/jqueryval")*@
 <script>
     function DeleteCustomer(id) {
         //debugger;
         if (confirm("Are you sure?")) {
             $.ajax({
                 type: "GET",
+                dataType:'json',
                 url: "/Customer/delteCustomer/" + id,
                 success: function (result) {
                     if (result != 1) {
@@ -111,7 +108,6 @@
                 }
             })
         }
-        
     }
     $(document).ready(function () {
         
@@ -126,13 +122,16 @@
                     type: "POST",
                     url: "/Customer/AddCustomer",
                     data: mydata,
+                    dataType: 'json',
                     success: function (result) {
-                        alert("done");
-                    },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                        alert(xhr.status);
-                        alert(thrownError);
+                        if (result.r == 1) {
+                            location.reload();
+                        }
+                        else {
+                            alert("Not Added :(")
+                        }
                     }
+                    
                 })
             }
             })

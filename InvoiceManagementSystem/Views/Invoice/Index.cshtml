@@ -50,127 +50,93 @@
         <th>Operations</th>
     </tr>
 
-@foreach (var item in Model.ListInvoices) {
-    <tr id="#invo_"@item.id>
-        <td>
-            @Html.DisplayFor(modelItem => item.invoice_no)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Issue_Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Collect_Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Act_C_Date)
-        </td>
-        <td>
-            @{ if (item.Collected == true)
+    @foreach (var item in Model.ListInvoices)
+    {
+        <tr id="#invo_" @item.id>
+            <td>
+                @Html.DisplayFor(modelItem => item.invoice_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Issue_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Collect_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Act_C_Date)
+            </td>
+            <td>
+                @{ if (item.Collected == true)
                 {
-                    <input type="checkbox" name="vehicle" value=@item.Collected checked disabled>
-                }
-                else
-                {
-                    <input type="checkbox" name="vehicle" value=@item.Collected disabled>
-                }
-            }
-        </td>
-        <td>
-            @{ if (item.Suspended == true)
-                {
-                    <input type="checkbox" name="vehicle" value=@item.Suspended checked disabled>
-                }
-                else
-                {
-                    <input type="checkbox" name="vehicle" value=@item.Suspended disabled>
-                }
-            }
-        </td>
-        <td>
-            @{
-                foreach (var item4 in Model.ListComments)
-                {
-                    if (item4.Invoices_Id == item.id)
+                        <input type="checkbox" name="vehicle" value=@item.Collected checked disabled>
+                    }
+                    else
                     {
-                     <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content=@item.Collect_Date>
-                      Comment</button>
+                        <input type="checkbox" name="vehicle" value=@item.Collected disabled>
                     }
                 }
-            }
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Customer.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditInvoice", new { id=item.id } ,new { @class="btn btn-danger"}) 
-            @{
-                if (item.Collected == true)
+            </td>
+            <td>
+                @{ if (item.Suspended == true)
                 {
-                    @Html.ActionLink("Paid", "PayInvoice", new { id = item.id }, new { @class = "btn btn-success", @disabled = "disabled" })
+                        <input type="checkbox" name="vehicle" value=@item.Suspended checked disabled>
+                    }
+                    else
+                    {
+                        <input type="checkbox" name="vehicle" value=@item.Suspended disabled>
+                    }
                 }
-                else
-                {
-                    @Html.ActionLink("Pay", "PayInvoice", new { id = item.id }, new { @class = "btn btn-success"})
+            </td>
+            <td>
+                @{
+                    var a = 0;
+                    foreach (var item4 in Model.ListComments)
+                    {
+                        if (item4.Invoices_Id == item.id)
+                        {
+                            a = 1;
+                        }
+                    }
+                    if (a == 1)
+                    {
+                        <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content=@item.Collect_Date>
+                            Comment
+                        </button>
+                    }
+                    else
+                    {
+                        <h6>No Comments</h6>
+                    }
                 }
-            }
-         @*   <button class="btn btn-warning" onclick="PayInvoice(@item.id)">Pay</button>*@
-            <button class = "btn btn-warning" onclick="DeleteInvoice(@item.id)">Delete</button>
-        </td>
-    </tr>
-}
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditInvoice", new { id = item.id }, new { @class = "btn btn-danger" })
+                @{
+                    if (item.Collected == true)
+                    {
+                        @Html.ActionLink("Paid", "PayInvoice", new { id = item.id }, new { @class = "btn btn-success", @disabled = "disabled" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Pay", "PayInvoice", new { id = item.id }, new { @class = "btn btn-success" })
+                    }
+                }
+                @*   <button class="btn btn-warning" onclick="PayInvoice(@item.id)">Pay</button>*@
+                <button class="btn btn-warning" onclick="DeleteInvoice(@item.id)">Delete</button>
+            </td>
+        </tr>
+    }
 
 </table>
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" data-whatever="">Add Invoice</button>
+<a href="~/Invoice/Index2" class="btn btn-default">Go to back</a>
 <hr />
 <!-- Add Invoice-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-    <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Add Invocie Form</h4>
-                </div>
-                <form id="save2" style="display:block" method="post">
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="recipient-name" class="control-label">Invoice Number</label>
-                            <input type="text" class="form-control" placeholder=@temp disabled>
-                            <input type="hidden" class="form-control" id="recipient-name" name="i.invoice_no" value=@temp>
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="control-label">Invoice Date</label>
-                            <input type="datetime-local" class="form-control" id="InvoiceDate" name="i.Issue_Date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="sel1">Select list:</label>
-                            <select class="form-control" id="sel1" name="i.Customer_Id" required>
-                                <option selected="selected">Select Customer</option>
-                                @foreach (var item2 in Model.ListCustomers)
-                                {
-                                    <option value=@item2.id>@item2.Name</option>
-                                }
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="control-label">Amount</label>
-                            <input type="number" class="form-control" id="recipient-name" name="i.Amount" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="control-label">Collection Date</label>
-                            <input type="datetime-local" class="form-control" id="recipient-name" name="i.Collect_Date" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="send2">Add</button>
-                    </div>
-                </form>
-         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-        </div>
-    </div>
-</div>
 
 @section Scripts{
     @Scripts.Render("~/bundles/jquery")
@@ -201,8 +167,8 @@
                     data: mydata,
                     success: function (result) {
                         //if (result.r == 1) {
-                            //$("#t_view").reload();
-                            location.reload();
+                        //$("#t_view").reload();
+                        location.reload();
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         //alert(xhr.status);

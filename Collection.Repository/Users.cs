@@ -38,11 +38,11 @@ namespace Collection.Repository
         public void editUser(User u)
         {
             var us = getUser(u.id);
-
             us.Name = u.Name;
             us.Active = u.Active;
             us.user_name = u.user_name;
-            
+            us.Type = u.Type;
+            us.password = u.password;
             db.SaveChanges();
         }
         public void deleteUser(int id)

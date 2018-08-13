@@ -303,6 +303,8 @@
     <Content Include="Views\Invoice\EditInvoice.cshtml" />
     <Content Include="Views\Invoice\EditInvoice2.cshtml" />
     <Content Include="Views\Invoice\Index2.cshtml" />
+    <Content Include="Views\Users\editUser.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

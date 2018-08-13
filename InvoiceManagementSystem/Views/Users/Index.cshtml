@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Collcection.DAL.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Users</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.user_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type1.Type_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+          @{if (item.Active == true)
+              { <input type="checkbox" checked disabled/>}
+              else
+              {<input type="checkbox" disabled /> }
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type1.Type_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "editUser", new { id=item.id },new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Delete", "delteUser", new { id=item.id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+@Html.ActionLink("Add", "Add_User",null,new { @class = "btn btn-primary" })
+<hr />

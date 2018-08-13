@@ -1,6 +1,4 @@
 ﻿@model Collection.Entity.Cust_Innove_Membership
-
-
 @{
     ViewBag.Title = "Invoices List";
     Layout = "~/Views/Shared/_Layout2.cshtml";
@@ -52,7 +50,6 @@
     </select>
  </div>
  <button id="btn1" type="button" data-dismiss="modal" class="btn btn-primary">Search</button><hr />
-
     <!---------------------------------------->
     <table class="table table-bordered" id="invoiceTable">
         <thead>
@@ -90,6 +87,7 @@
         <tbody></tbody>
     </table>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="">Add Invoice</button>
+   <a href="~/Invoice" class="btn btn-default">See All Invoices</a>
     <hr />
     <!-- Add Invoice-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -142,22 +140,6 @@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         <script>
-        function DeleteInvoice(id) {
-            //debugger;
-            if (confirm("Are you sure?")) {
-                $.ajax({
-                    type: "GET",
-                    url: "/Invoice/delteInvoice/" + id,
-                    success: function (result) {
-                        //$("#invvo_" + id).remove();
-                        location.reload();
-                    },
-                    error: function () {
-                        alert("error");
-                    }
-                })
-            }
-        }
         $(document).ready(function () {
             $("#send2").click(function () {
                 var mydata = $("#save2").serialize();
@@ -178,6 +160,7 @@
             })
         })
         //pay fun
+
         </script>
         <!--Adding invoice form (popup)-->
         <script>
@@ -195,8 +178,9 @@
         })
         </script>
 
-        <!--Search-->
+        <!--Search ,Pay, add ,edit and delete  invoice-->
         <script>
+            //search 
             $(document).ready(function () {
                 $('#btn1').click(function () {
                     var val1 = $("#IDateTo").val();
@@ -213,6 +197,12 @@
                         success: function (data) {
                             $('#invoiceTable tbody > tr').remove();
                             $.each(data, function (index, item) {
+                                var obj = item.Comments;
+                                var com = "";
+                                for (p in obj) {
+                                    console.log(obj[p].comment1);
+                                    com += obj[p].comment1;
+                                }
                                 var Collected = "<input type='checkbox' disabled >";
                                 var Suspended = "<input type='checkbox' disabled >";
                                 if (item.Collected == true) { Collected = "<input type='checkbox' checked disabled> " }
@@ -225,15 +215,15 @@
                                     "<td>" + item.Act_C_Date + "</td> " +
                                     "<td>" + Collected + "</td> " +
                                     "<td>" + Suspended + "</td> " +
-                                    "<td>" + item.Comments + "</td> " +
+                                    "<td>"+' <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="sdfdsf">Comment</button>'+"</td> "+
+                                    //"<td>" + ""+item.Comments + "</td> " +
                                     "<td>" + item.Customer.Name + "</td> " +
                                     "<td>" + "<button id='btn1' type='button' onclick='edit(" + item.id + ")'  class='btn btn-info'>" + "Edit" + "</button>" + " " +
                                     "<button id='btn1' type='button' onclick='pay(" + item.id + ")'  class = 'btn btn-success'>" + "Pay" + "</button>" + " " +
                                     "<button id='btn1' type='button' onclick='DeleteInvoice(" + item.id + ")'  class='btn btn-danger'>" + "Delete" + "</button>" + "</td>" +
                                     +"</tr>";
-
                                 $('#invoiceTable').append(rows);
-
+                                console.log(com);
                             });
                         },
                         error: function (response) {
@@ -266,14 +256,14 @@
             }
         </script>
 
+ }
+<style>
+    .row {
+        margin-right: -65px;
+        margin-left: -65px;
     }
-    <style>
-        .row {
-            margin-right: -65px;
-            margin-left: -65px;
-        }
-        .row2 {
-            margin-right: -15px;
-            margin-left: -15px;
-        }
-    </style>
+    .row2 {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+</style>

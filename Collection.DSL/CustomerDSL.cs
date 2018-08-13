@@ -15,7 +15,6 @@ namespace Collection.DSL
             if (Active == "on")
             {
                 c.Active = true;
-
             }
             else
             {

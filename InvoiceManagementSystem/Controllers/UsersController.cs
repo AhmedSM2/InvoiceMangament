@@ -24,14 +24,11 @@ namespace InvoiceManagementSystem.Controllers
         [HttpPost]
         public ActionResult Add_User(User U,string c)
         {
-            if(c == "on")
-            {
-                U.Active = true;
-            }
+            if(c == "on"){U.Active = true;}
             else { U.Active = false; }
             U.Type =2 ;
             u_dsl.addUser(U);
-            return Content("done");
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -39,7 +36,6 @@ namespace InvoiceManagementSystem.Controllers
         {
             return View(u_dsl.getOneUser(id));
         }
-
         [HttpPost]
         public ActionResult editUser(User user)
         {
