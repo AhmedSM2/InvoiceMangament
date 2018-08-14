@@ -35,7 +35,7 @@ namespace InvoiceManagementSystem.Controllers
             Session["UserInfo"] = null;
             return RedirectToAction("Index");
         }
-        public ActionResult profile()
+        public ActionResult Error_404()
         {
             return View();
         }
