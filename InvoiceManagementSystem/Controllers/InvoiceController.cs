@@ -70,19 +70,19 @@ namespace InvoiceManagementSystem.Controllers
             inv_Dsl.editInvoice2(i);
             return RedirectToAction("Index2");
         }
-
-        [HttpGet]
-        public ActionResult EditInvoice2(int id)
-        {
-            return View(inv_Dsl.getInvoice_comments(id));
-        }
-        [HttpPost]
-        public ActionResult EditInvoice2(Invoice i)
-        {
-            inv_Dsl.editInvoice(i);
-            return RedirectToAction("Index");
-        }
-
+        #region
+        //[HttpGet]
+        //public ActionResult EditInvoice2(int id)
+        //{
+        //    return View(inv_Dsl.getInvoice_comments(id));
+        //}
+        //[HttpPost]
+        //public ActionResult EditInvoice2(Invoice i)
+        //{
+        //    inv_Dsl.editInvoice(i);
+        //    return RedirectToAction("Index");
+        //}
+        #endregion
         [HttpGet]
         public ActionResult delteCustomer(int id)
         {
@@ -101,6 +101,17 @@ namespace InvoiceManagementSystem.Controllers
         {
             cm_Dsl.AddComment(comment, id, invo_id);
             return RedirectToAction("Index2");
+        }
+        // show comment
+        public String GetComment(int id)
+        {
+          var comment=  cm_Dsl.getListComments(id);
+           var a = JsonConvert.SerializeObject(comment,
+                Formatting.None, new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+            return a;
         }
         // search
         public string SearchResult(string IssueFrom, string IssueTo, string ColFrom, string ColTo, string Customer)

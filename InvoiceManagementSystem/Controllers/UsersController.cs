@@ -22,13 +22,17 @@ namespace InvoiceManagementSystem.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Add_User(User U,string c)
+        public ActionResult Add_User(User U,string c ,string c_pass)
         {
-            if(c == "on"){U.Active = true;}
-            else { U.Active = false; }
-            U.Type =2 ;
-            u_dsl.addUser(U);
-            return RedirectToAction("Index");
+            if (U.password == c_pass)
+            {
+                if (c == "on") { U.Active = true; }
+                else { U.Active = false; }
+                U.Type = 2;
+                u_dsl.addUser(U);
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         [HttpGet]

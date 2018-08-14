@@ -1,10 +1,11 @@
 ﻿@model Collection.Entity.Cust_Innove_Membership
-
+@using Collcection.DAL
 
 @{
     ViewBag.Title = "Invoices List";
     Layout = "~/Views/Shared/_Layout2.cshtml";
     int temp = 0;
+    var z = "";
     if (ViewBag.InvoCount <= 0)
     {
         temp = 1;
@@ -92,19 +93,23 @@
             </td>
             <td>
                 @{
+                    Comment cc = new Comment();
                     var a = 0;
                     foreach (var item4 in Model.ListComments)
                     {
                         if (item4.Invoices_Id == item.id)
                         {
+                            z += (item4.comment1 + "------");
                             a = 1;
                         }
                     }
                     if (a == 1)
                     {
-                        <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content=@item.Collect_Date>
+                        @*<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content=@z>
                             Comment
-                        </button>
+                        </button>*@
+                        <button type="button" class="btn btn-info " data-toggle="modal" data-target="#exampleModal" data-whatever=""> Comment</button>
+
                     }
                     else
                     {
@@ -136,7 +141,33 @@
 </table>
 <a href="~/Invoice/Index2" class="btn btn-default">Go to back</a>
 <hr />
-<!-- Add Invoice-->
+<!-- show comments-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Comments Form</h4>
+            </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Comments Panel</div>
+                        <h6>@z</h6>
+                    </div>
+                    <div class="comment">
+                        <div class="form-group">
+                            <input type="text" name="comment" class="form-control" />
+                        </div>
+                        <button type="submit" class="btn btn-success" id="">Send</button>
+                    </div>
+                    <br />
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts{
     @Scripts.Render("~/bundles/jquery")
@@ -193,6 +224,10 @@
         $(function () {
             $('[data-toggle="popover"]').popover()
         })
+    </script>
+    <!--Show Comment-->
+    <script>
+
     </script>
 }
 <style>
