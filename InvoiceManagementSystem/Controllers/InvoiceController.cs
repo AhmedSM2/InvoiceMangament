@@ -134,7 +134,7 @@ namespace InvoiceManagementSystem.Controllers
             {
                 foreach (var item in m.ListInvoices)
                 {
-                    if (item.Issue_Date >= IF && item.Issue_Date <= IT && Customer == item.Customer.Name /*&& item.Collect_Date >= Col1 && item.Collect_Date <= col2*/)
+                    if (item.Issue_Date >= IF && item.Issue_Date <= IT && Customer == item.Customer.Name && item.Collect_Date >= Col1 && item.Collect_Date <= col2)
                     {
                         invoices2.Add(item);
                     }
