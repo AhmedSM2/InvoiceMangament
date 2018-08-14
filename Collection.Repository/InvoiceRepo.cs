@@ -32,6 +32,8 @@ namespace Collection.Repository
         public void deleteInvoice(int id)
         {
             var invo = getInov(id);
+            var comm = db.Comments.Where(m => m.Invoices_Id == id).ToList();
+            db.Comments.RemoveRange(comm);
             db.Invoices.Remove(invo);
             db.SaveChanges();
         }

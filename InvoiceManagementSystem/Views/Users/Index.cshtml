@@ -51,7 +51,9 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "editUser", new { id=item.id },new { @class = "btn btn-success" }) 
-            @Html.ActionLink("Delete", "delteUser", new { id=item.id }, new { @class = "btn btn-danger" })
+         @*   @Html.ActionLink("Delete", "delteUser", new { id=item.id }, new { @class = "btn btn-danger" })*@
+            <button class="btn btn-danger" onclick="DeleteUser(@item.id)">Delete</button>
+
         </td>
     </tr>
 }
@@ -59,3 +61,26 @@
 </table>
 @Html.ActionLink("Add", "Add_User",null,new { @class = "btn btn-primary" })
 <hr />
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        function DeleteUser(id) {
+            //debugger;
+            if (confirm("Are you sure?")) {
+                $.ajax({
+                    type: "POST",
+                    dataType:'json',
+                    url: "/Users/delteUser/" + id,
+                    success: function (result) {
+                        //$("#invvo_" + id).remove();
+                        location.reload();
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                })
+            }
+        }
+  </script>
+}

@@ -49,8 +49,9 @@ namespace InvoiceManagementSystem.Controllers
 
         public ActionResult delteUser(int id)
         {
-           u_dsl.del_User(id);
-            return RedirectToAction("Index");
+            u_dsl.del_User(id);
+            return Json(new { r = 1 });
+            //return RedirectToAction("Index");
         }
     }
 }

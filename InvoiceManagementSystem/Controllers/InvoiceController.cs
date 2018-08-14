@@ -51,7 +51,6 @@ namespace InvoiceManagementSystem.Controllers
                 return Json(new { });
             }
         }
-        [HttpGet]
         public ActionResult delteInvoice(int id)
         {
             inv_Dsl.del_invo(id);

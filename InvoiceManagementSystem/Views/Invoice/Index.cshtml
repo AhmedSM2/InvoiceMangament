@@ -177,7 +177,8 @@
             //debugger;
             if (confirm("Are you sure?")) {
                 $.ajax({
-                    type: "GET",
+                    type: "POST",
+                    dataType:'json',
                     url: "/Invoice/delteInvoice/" + id,
                     success: function (result) {
                         //$("#invvo_" + id).remove();
