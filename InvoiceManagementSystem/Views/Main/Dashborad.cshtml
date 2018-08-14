@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Dashborad";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<h2>Dashborad</h2>
+<div class="d-page">
+    <div class="operations operations1 col-xs-12 text-center">
+        <div class="col-xs-5 c-item">
+            <i class="glyphicon glyphicon-th-list"></i>
+            <a href="~/Customer" class=""> Show All Customrs</a>
+        </div>
+        <div class="col-xs-5 c-item">
+            <i class="glyphicon glyphicon-cog"></i>
+            <a href="" class="">Customrs Operations</a>
+        </div>
+    </div>
+    <div class="operations operations2 col-xs-12 text-center">
+        <div class="col-xs-5 c-item">
+            <i class="glyphicon glyphicon-eye-open"></i>
+            <a href="~/Invoice/Index" class=""> Show All Invocies</a>
+        </div>
+        <div class="col-xs-5 c-item">
+            <i class="glyphicon glyphicon-search"></i>
+            <a href="~/Invoice/Index2" class="">Search Invocies</a>
+        </div>
+    </div>
+    <div class="operations operations3 col-xs-12 text-center">
+        <div class="col-xs-5 c-item">
+            <i class="glyphicon glyphicon-user"></i>
+            <a href="~/Users" class=""> Show All Users</a>
+        </div>
+        <div class="col-xs-5 c-item">
+            <i class="glyphicon glyphicon-plus"></i>
+            <a href="~/Users/Add_User" class="">Add User</a>
+        </div>
+    </div>
+
+</div>
+
+<div style="clear:both"></div>
+<style>
+    .operations{
+        margin-bottom:10px;
+    }
+    .operations a {
+        color: #fff;
+        font-size: 30px;
+        padding: 5px;
+    }
+   .operations2 a{
+       color:#000;
+   }
+    .operations2 .c-item {
+        background-color: #e0c852;
+    }
+    .operations3 .c-item {
+        background-color: #3fb785;
+    }
+    .operations3 i ,.operations1 i{
+        color:#fff;
+    }
+    .c-item {
+        min-height: 150px;
+        background-color: #3fb7b2;
+        border-radius: 5px;
+        margin-right: 10px;
+        padding: 15px;
+        -webkit-box-shadow: 0px 0px 47px -16px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 47px -16px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 47px -16px rgba(0,0,0,0.75);
+    }
+    .c-item i{
+        padding-top:24px;
+    }
+    .d-page i{
+        font-size:50px;
+    }
+</style>

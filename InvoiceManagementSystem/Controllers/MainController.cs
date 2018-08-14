@@ -15,7 +15,10 @@ namespace InvoiceManagementSystem.Controllers
         {
             return View();
         }
-
+        public ActionResult Dashborad()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult Index(User u)
         {
@@ -23,9 +26,14 @@ namespace InvoiceManagementSystem.Controllers
             var temp = Session["UserInfo"] as User;
             if (temp != null)
             {
-                return RedirectToAction("Index2", "Invoice");
+                return RedirectToAction("Dashborad");
             }
             return View();
+        }
+        public ActionResult Logout()
+        {
+            Session["UserInfo"] = null;
+            return RedirectToAction("Index");
         }
         public ActionResult profile()
         {

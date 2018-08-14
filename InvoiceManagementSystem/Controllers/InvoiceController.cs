@@ -116,8 +116,8 @@ namespace InvoiceManagementSystem.Controllers
             var invoices2 = new List<Invoice> ();
             DateTime IT = CreateDateTime(IssueTo);
             DateTime IF = CreateDateTime(IssueFrom);
-            //DateTime Col1 = CreateDateTime(ColTo);
-            //DateTime col2 = CreateDateTime(ColFrom);
+            DateTime Col1 = CreateDateTime(ColTo);
+            DateTime col2 = CreateDateTime(ColFrom);
 
             if (Customer == "0")
             {
